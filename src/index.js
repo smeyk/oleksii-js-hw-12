@@ -17,8 +17,8 @@ const createButtonWithPokemonsName = (id, pokemonName) => {
 	return `<button id="${id}" class="pokemon-name">${pokemonName}</button>`;
 }
 
-const createPokemonImage = (largeImage, src) => {
-	return `<a  href="${largeImage}"><image class="svg-img" src="${src}"></image></a>`
+const createPokemonImage = (src) => {
+	return `<a  href=""><image class="svg-img" src="${src}"></image></a>`
 }
 
 const onClickShowPokemonsBtn = () => {
@@ -41,11 +41,10 @@ const choosePokemonsName = (event) => {
 
 	pokemons.getPokemonsImage(event.target.id)
 		.then(data => {
-			console.log(data)
-			largeImg = data.sprites.other.home.front_default;
+			//largeImg = data.sprites.other.home.front_default;
 			svgImg = data.sprites.other.dream_world.front_default;
 			loader.style.display = "flex";
-			pokemonsPhotoContainer.innerHTML = createPokemonImage(largeImg, svgImg);
+			pokemonsPhotoContainer.innerHTML = createPokemonImage(svgImg);
 		})
 	event.target.style.backgroundColor = "#924897";
 	event.target.style.color = "white";
