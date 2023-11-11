@@ -41,10 +41,10 @@ const choosePokemonsName = (event) => {
 
 	pokemons.getPokemonsImage(event.target.id)
 		.then(data => {
-			//largeImg = data.sprites.other.home.front_default;
-			//svgImg = data.sprites.other.dream_world.front_default;
+			let largeImg = data.sprites.other.home.front_default;
+			let svgImg = data.sprites.other.dream_world.front_default;
 			loader.style.display = "flex";
-			pokemonsPhotoContainer.innerHTML = createPokemonImage(data.sprites.other.home.front_default, data.sprites.other.dream_world.front_default);
+			pokemonsPhotoContainer.innerHTML = createPokemonImage(largeImg, svgImg);
 		})
 	event.target.style.backgroundColor = "#924897";
 	event.target.style.color = "white";
