@@ -42,9 +42,9 @@ const choosePokemonsName = (event) => {
 	pokemons.getPokemonsImage(event.target.id)
 		.then(data => {
 			//largeImg = data.sprites.other.home.front_default;
-			svgImg = data.sprites.other.dream_world.front_default;
+			//svgImg = data.sprites.other.dream_world.front_default;
 			loader.style.display = "flex";
-			pokemonsPhotoContainer.innerHTML = createPokemonImage(svgImg);
+			pokemonsPhotoContainer.innerHTML = createPokemonImage(data.sprites.other.dream_world.front_default);
 		})
 	event.target.style.backgroundColor = "#924897";
 	event.target.style.color = "white";
