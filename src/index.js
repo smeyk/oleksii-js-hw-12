@@ -32,22 +32,23 @@ const onClickShowPokemonsBtn = () => {
 			loadMoreBtn.style.display = "block";
 		})
 }
-loader.style.display = "none";
+
 const choosePokemonsName = (event) => {
 	event.preventDefault();
 	if (event.target.className !== "pokemon-name") {
 		return;
 	}
-	loader.style.display = "flex";
+
 	pokemons.getPokemonsImage(event.target.id)
 		.then(data => {
-			event.target.style.backgroundColor = "#924897";
-			event.target.style.color = "white";
+			console.log(data)
 			largeImg = data.sprites.other.home.front_default;
 			svgImg = data.sprites.other.dream_world.front_default;
+			loader.style.display = "flex";
 			pokemonsPhotoContainer.innerHTML = createPokemonImage(largeImg, svgImg);
 		})
-
+	event.target.style.backgroundColor = "#924897";
+	event.target.style.color = "white";
 }
 
 const onClickLoadMore = () => {
