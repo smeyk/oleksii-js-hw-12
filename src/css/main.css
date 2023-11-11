@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=Roboto:wght@400;700&display=swap');
+
+body {
+	font-family: 'Manrope', sans-serif;
+	font-family: 'Roboto', sans-serif;
+}
+
+.pokemons-photo-container {
+	position: relative;
+}
+
+.loader {
+	width: 48px;
+	height: 48px;
+	border: 5px solid #FFF;
+	border-bottom-color: #FF3D00;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+	position: absolute;
+
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.pokemons-btn-container {
+	display: grid;
+	grid-template-columns: repeat(5, 10%);
+	gap: 10px;
+}
+
+.wrap-content {
+	width: 80%;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+	position: relative;
+}
+
+button {
+	background-color: #924897;
+	color: #FFF;
+	cursor: pointer;
+	border: none;
+	text-transform: uppercase;
+	box-shadow: 10px 13px 13px -8px rgba(0, 0, 0, 0.74);
+	-webkit-box-shadow: 10px 13px 13px -8px rgba(0, 0, 0, 0.74);
+	-moz-box-shadow: 10px 13px 13px -8px rgba(0, 0, 0, 0.74);
+}
+
+.svg-img {
+	max-width: 200px;
+	max-height: 200px;
+	position: fixed;
+	top: 50px;
+	right: 30%;
+
+}
+
+.wrap-pokemons {
+	padding-bottom: 100px;
+}
+
+.show-pokemons {
+	padding: 20px;
+	border-radius: 50px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.pokemon-name {
+	padding: 15px;
+	border-radius: 50px;
+	font-weight: bold;
+	color: black;
+	background-color: #ffe952;
+	text-shadow: 1px 1px 2px pink;
+}
+
+.load-more {
+	position: absolute;
+	padding: 20px;
+	width: 250px;
+	border-radius: 50px;
+	bottom: 50px;
+	right: 0;
+	margin-left: -125px;
+	display: none;
+}
