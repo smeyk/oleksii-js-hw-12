@@ -2,6 +2,7 @@ import SimpleLightbox from "simplelightbox";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'normalize.css';
 import SearchPokemonsAPI from "./js/searchPokemonsAPI";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 const loader = document.querySelector(".loader");
 const showPokemonsBtn = document.querySelector(".show-pokemons");
@@ -11,14 +12,14 @@ const loadMoreBtn = document.querySelector(".load-more")
 
 
 const pokemons = new SearchPokemonsAPI();
-const simpleLightBox = new SimpleLightbox(".pokemonsPhotoContainer a", { close: true, });
+const simpleLightBox = new SimpleLightbox(".pokemons-photo-container a");
 
 const createButtonWithPokemonsName = (id, pokemonName) => {
 	return `<button id="${id}" class="pokemon-name">${pokemonName}</button>`;
 }
 
 const createPokemonImage = (largeImg, smallImg) => {
-	return `<a  href="${largeImg}"><image class="svg-img" src="${smallImg}"></image></a>`
+	return `<a  href="${largeImg}"><img class="svg-img" src="${smallImg}"></img></a>`
 }
 
 const onClickShowPokemonsBtn = () => {
@@ -38,13 +39,14 @@ const choosePokemonsName = (event) => {
 	if (event.target.className !== "pokemon-name") {
 		return;
 	}
-
 	pokemons.getPokemonsImage(event.target.id)
 		.then(data => {
 			let largeImg = data.sprites.other.home.front_default;
 			let svgImg = data.sprites.other.dream_world.front_default;
 			loader.style.display = "flex";
 			pokemonsPhotoContainer.innerHTML = createPokemonImage(largeImg, svgImg);
+			simpleLightBox.refresh()
+			Notify.info("Click on the pokemon to see bigger picture.")
 		})
 	event.target.style.backgroundColor = "#924897";
 	event.target.style.color = "white";

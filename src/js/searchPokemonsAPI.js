@@ -4,7 +4,7 @@ export default class SearchPokemonsAPI {
 	constructor() {
 		this.baseURL = "https://pokeapi.co/api/v2/";
 		this.limit = 10;
-		this.offset = 10;
+		this.offset = 0;
 	}
 	getPokemons() {
 		const pokemonsUrl = `${this.baseURL}pokemon?limit=${this.limit}&offset=${this.offset}`
